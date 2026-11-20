@@ -15,14 +15,10 @@ module TGH.LastTimeListValueIndependent (fe : naive-funext 𝓤₀ 𝓤₀) wher
 
 open import Naturals.Addition renaming
  (addition-commutativity to +-comm ; addition-associativity to +-assoc)
-open import Naturals.Multiplication
-open import Naturals.Exponentiation
-open import Naturals.Order renaming (_≤ℕ_ to _≤_ ; _<ℕ_ to _<_)
 open import Naturals.Properties renaming (pred to pred')
 open import MLTT.Vector renaming (Vector to Vec) hiding (head)
 open import MLTT.Fin
 open import MLTT.List renaming (length to length')
-open import UF.Base
 open import TGH.Thunk
 open import TGH.Language fe
 open import TGH.HeadExample fe

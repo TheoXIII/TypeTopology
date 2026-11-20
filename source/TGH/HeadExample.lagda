@@ -18,7 +18,6 @@ module TGH.HeadExample (fe : naive-funext 𝓤₀ 𝓤₀) where
 open import Naturals.Addition renaming
  (addition-commutativity to +-comm ; addition-associativity to +-assoc)
 open import Naturals.Multiplication
-open import Naturals.Exponentiation
 open import Naturals.Order renaming (_≤ℕ_ to _≤_ ; _<ℕ_ to _<_)
 open import Naturals.Properties renaming (pred to pred')
 open import MLTT.Vector renaming (Vector to Vec) hiding (head)
@@ -156,7 +155,7 @@ lazy-head-constant-time : {n : ℕ} {Γ : Ctx n}
                         → (list-time-function-naive env
                           (inl refl) head lazy)
                           ∈O[ (λ n → 1) ]
-lazy-head-constant-time env = big-o (2 , (1 , γ))
+lazy-head-constant-time env = 2 , (1 , γ)
  where
   γ : (x : ℕ)
     → 1 ≤ x
@@ -368,7 +367,7 @@ eager-head-not-constant-time : {n : ℕ} {Γ : Ctx n}
                              → ¬ ((list-time-function-naive env (inl refl)
                                 head eager)
                                ∈O[ (λ n → 1) ])
-eager-head-not-constant-time env (big-o (C , N₀ , f)) = γ (≤-decidable N₀ C)
+eager-head-not-constant-time env (C , N₀ , f) = γ (≤-decidable N₀ C)
  where
   tail-time : ℕ → ℕ
   tail-time m
@@ -535,8 +534,7 @@ eager-head-linear-time : {n : ℕ} {Γ : Ctx n}
                        → (list-time-function-naive env
                          (inl refl) head eager) ∈O[ (λ n → n) ]
 eager-head-linear-time env
- = big-o
-    (3 , (1 , (λ n le → pr₂ (pr₂ eager-head-linear-time-big-o) n le env)))
+ = 3 , (1 , (λ n le → pr₂ (pr₂ eager-head-linear-time-big-o) n le env))
 
 \end{code}
 

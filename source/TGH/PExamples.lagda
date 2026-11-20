@@ -8,26 +8,16 @@ Provides examples of some decision problems that are in the complexity class P.
 
 open import MLTT.Spartan renaming (_+_ to _∔_) hiding (_^_ ; _∙_)
 open import UF.FunExt
-open import TGH.Strategy
 
 module TGH.PExamples (fe : naive-funext 𝓤₀ 𝓤₀) where
 
 open import Naturals.Addition
  renaming (addition-commutativity to +-comm ; addition-associativity to +-assoc)
-open import Naturals.Multiplication
-open import Naturals.Exponentiation
-open import Naturals.Order renaming (_≤ℕ_ to _≤_ ; _<ℕ_ to _<_)
-open import Naturals.Properties renaming (pred to pred')
-open import MLTT.Vector renaming (Vector to Vec) hiding (head)
-open import MLTT.Fin
 open import MLTT.List
 open import MLTT.Bool renaming (not to not')
-open import UF.Base
-open import TGH.Thunk
 open import TGH.Language fe
 open import TGH.HeadExample fe
 open import TGH.LastCorrectness fe
-open import TGH.ComplexityDefinitionsResults fe
 open import TGH.P fe
 open import TGH.LastTimeListValueIndependent fe
 open import TGH.LastLinearTimeEager fe

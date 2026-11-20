@@ -64,7 +64,6 @@ which also lists the publications that cite it.
  * [source/AllModulesIndex.lagda](source/AllModulesIndex.lagda) hereditarily imports all modules, including the unsafe ones.
  * Each subdirectory in [source/](source/) has its own index file.
 
-<<<<<<< HEAD
 The adopted Agda [flags](https://agda.readthedocs.io/en/latest/tools/command-line-options.html) are listed in [typetopology.agda-lib](typetopology.agda-lib), and the adopted [Mikan](https://codeberg.org/1lab/mikan) flags in [typetopology.mikan-lib](typetopology.mikan-lib).
 
 ## Installation

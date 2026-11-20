@@ -18,11 +18,8 @@ open import Naturals.Addition renaming
 open import Naturals.Multiplication
 open import Naturals.Exponentiation
 open import Naturals.Order renaming (_≤ℕ_ to _≤_ ; _<ℕ_ to _<_)
-open import Naturals.Properties renaming (pred to pred')
 open import MLTT.Vector renaming (Vector to Vec)
-open import MLTT.Fin
 open import MLTT.List
-open import UF.Base
 open import TGH.Thunk
 open import TGH.BigO
 open import TGH.Language fe
@@ -233,19 +230,18 @@ is-polytime-to-polybig-o
    k
     (C , N₀ , f)
      env
- = big-o
-    (C
-     , (N₀
-      , λ n le
-       → transport
-          (
-           λ z
-            → pr₁
-             (
-              pr₁
-               (eager-function-list env program)
-                (0 , return (gen-naive-list n))
-             )
+ = C
+    , (N₀
+     , λ n le
+      → transport
+         (
+          λ z
+           → pr₁
+            (
+             pr₁
+              (eager-function-list env program)
+               (0 , return (gen-naive-list n))
+            )
             ≤ (C * z ^ k)
           )
            (naive-list-length-lemma n ⁻¹)
@@ -253,32 +249,28 @@ is-polytime-to-polybig-o
              f
               (gen-naive-list n)
                env
-                (transport (N₀ ≤_) (naive-list-length-lemma n) le)
+               (transport (N₀ ≤_) (naive-list-length-lemma n) le)
             )
        )
-    )
 is-polytime-to-polybig-o
  (inr refl)
   program
    k
     (C , N₀ , f)
      env
- = big-o
-    (
-     C
-      , (N₀
-       , λ n le
-       → transport
-        (λ z → pr₁
-         (pr₁ (eager-function-list env program) (0 , return (gen-naive-list n)))
-          ≤ (C * z ^ k)
-        )
-         (naive-list-length-lemma n ⁻¹)
-          (f (gen-naive-list n) env
-           (transport (N₀ ≤_) (naive-list-length-lemma n) le)
-          )
-        )
-    )
+ = C
+    , (N₀
+     , λ n le
+      → transport
+       (λ z → pr₁
+        (pr₁ (eager-function-list env program) (0 , return (gen-naive-list n)))
+        ≤ (C * z ^ k)
+       )
+        (naive-list-length-lemma n ⁻¹)
+         (f (gen-naive-list n) env
+          (transport (N₀ ≤_) (naive-list-length-lemma n) le)
+         )
+       )
 
 \end{code}
 

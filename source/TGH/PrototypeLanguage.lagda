@@ -17,11 +17,8 @@ open import Naturals.Addition renaming
  (addition-commutativity to +-comm ; addition-associativity to +-assoc)
 open import Naturals.Multiplication
 open import Naturals.Order renaming (_≤ℕ_ to _≤_ ; _<ℕ_ to _<_)
-open import Naturals.Properties renaming (pred to pred')
 open import Naturals.Double renaming (double to double')
 open import MLTT.Vector renaming (Vector to Vec)
-open import MLTT.List
-open import MLTT.Bool hiding (if_then_else_)
 open import MLTT.Fin
 open import TGH.BigO
 open import TGH.Thunk
@@ -669,7 +666,7 @@ succ^ zero y n = n + y
 succ^ (succ x) y n = 1 + succ^ x y n
 
 double-time : (time-function double) ∈O[ (λ n → n) ]
-double-time = big-o (5 , 1 , γ)
+double-time = 5 , 1 , γ
  where
   γ₀ : (x : ℕ)
      → 1 ≤ (succ x)
@@ -809,7 +806,7 @@ nat-rec<2 (succ n) = γ (nat-rec _ n zero even-step) (nat-rec<2 n)
   γ (succ (succ n)) ()
 
 is-even-time : (time-function is-even) ∈O[ (λ n → n) ]
-is-even-time = big-o (6 , 1 , γ)
+is-even-time = 6 , 1 , γ
  where
   γ₀ : (n : ℕ)
      → 1 ≤ (succ n)

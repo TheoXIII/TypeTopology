@@ -18,11 +18,9 @@ open import Naturals.Addition renaming
 open import Naturals.Multiplication
 open import Naturals.Exponentiation
 open import Naturals.Order renaming (_≤ℕ_ to _≤_ ; _<ℕ_ to _<_)
-open import Naturals.Properties renaming (pred to pred')
 open import MLTT.Vector renaming (Vector to Vec) hiding (head)
 open import MLTT.Fin hiding (pred)
 open import MLTT.List renaming (length to length')
-open import UF.Base
 open import TGH.Thunk
 open import TGH.BigO
 open import TGH.Language fe
@@ -30,7 +28,6 @@ open import TGH.HeadExample fe
 open import TGH.LastCorrectness fe
 open import TGH.LastTimeListValueIndependent fe
 open import TGH.ComplexityDefinitionsResults fe
-open import TGH.P fe
 
 \end{code}
 

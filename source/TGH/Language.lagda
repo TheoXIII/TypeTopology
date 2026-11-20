@@ -15,9 +15,6 @@ module TGH.Language (fe : naive-funext 𝓤₀ 𝓤₀) where
 
 open import Naturals.Addition renaming
  (addition-commutativity to +-comm ; addition-associativity to +-assoc)
-open import Naturals.Multiplication
-open import Naturals.Exponentiation
-open import Naturals.Order renaming (_≤ℕ_ to _≤_ ; _<ℕ_ to _<_)
 open import Naturals.Properties renaming (pred to pred')
 open import MLTT.Vector renaming (Vector to Vec)
 open import MLTT.Fin hiding (pred)
